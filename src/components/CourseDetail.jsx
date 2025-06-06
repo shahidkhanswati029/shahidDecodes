@@ -11,8 +11,8 @@ const courseMap = {
 };
 
 const CourseViewer = () => {
-  const { courseId } = useParams();
-  const course = courseMap[courseId];
+  const { tutorialId } = useParams();
+  const course = courseMap[tutorialId];
   const [selectedSectionId, setSelectedSectionId] = useState('');
 
   useEffect(() => {

@@ -15,11 +15,13 @@ import CourseDetail from './components/CourseDetail';
 import ContactUs from './components/ContactUs';
 import BlogList from './components/BlogList';
 import BlogView from './components/BlogView';
+import SearchDialog from './components/SearchDialog';
+import searchData from '../src/components/data/searchData';
 
-const MainLayout = ({ theme, toggleTheme }) => (
+const MainLayout = ({ theme, toggleTheme, onOpenSearch }) => (
   <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300">
-    <Navbar theme={theme} toggleTheme={toggleTheme} />
-    <main className="p-4 pt-24"> {/* padding top for fixed navbar */}
+    <Navbar theme={theme} toggleTheme={toggleTheme} onOpenSearch={onOpenSearch} />
+    <main className="p-4 pt-24">
       <Outlet />
     </main>
     <Footer />
@@ -28,6 +30,7 @@ const MainLayout = ({ theme, toggleTheme }) => (
 
 const App = () => {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const toggleTheme = () => {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
@@ -46,12 +49,12 @@ const App = () => {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <MainLayout theme={theme} toggleTheme={toggleTheme} />,
+      element: <MainLayout theme={theme} toggleTheme={toggleTheme} onOpenSearch={() => setIsSearchOpen(true)} />,
       children: [
         { index: true, element: <Home /> },
         { path: 'tutorials', element: <Tutorials /> },
         { path: 'courses', element: <Courses /> },
-        { path: 'course/:courseId', element: <CourseDetail /> },
+       { path: 'tutorials/:tutorialId', element: <CourseDetail /> },
         { path: 'contact', element: <ContactUs /> },
         { path: 'blog', element: <BlogList /> },
         { path: 'blogs/:id', element: <BlogView /> },
@@ -59,7 +62,16 @@ const App = () => {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+      <SearchDialog
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+        data={searchData}
+      />
+    </>
+  );
 };
 
 export default App;
