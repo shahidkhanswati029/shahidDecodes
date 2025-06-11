@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SearchDialog from './SearchDialog.jsx';
 import searchData from './data/searchData.js';
+import { FiSearch } from 'react-icons/fi';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -28,10 +29,16 @@ const Navbar = () => {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 bg-white dark:bg-gray-900 shadow px-4 py-3 flex items-center justify-between text-gray-800 dark:text-white z-[9999]">
+        {/* Logo */}
         <Link to="/" className="flex items-center">
-          <img src="/1.svg" alt="Logo" className="h-16 w-auto" />
+          <img
+            src="/1.svg"
+            alt="Logo"
+            className="h-16 w-auto filter dark:invert"
+          />
         </Link>
 
+        {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-4">
           {navLinks.map(link => (
             <Link
@@ -44,13 +51,14 @@ const Navbar = () => {
           ))}
         </nav>
 
+        {/* Desktop Buttons */}
         <div className="hidden md:flex items-center space-x-4">
-          <button
+          <input
+            type="button"
+            value="Search"
             onClick={() => setSearchOpen(true)}
-            className="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700"
-          >
-            Search
-          </button>
+            className="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
+          />
 
           <button
             onClick={toggleTheme}
@@ -62,7 +70,17 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Toggle Button */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center space-x-3">
+          {/* Search Icon in Mobile */}
+          <button
+            onClick={() => setSearchOpen(true)}
+            className="p-2 text-gray-800 dark:text-white hover:text-blue-500"
+            title="Search"
+          >
+            <FiSearch size={22} />
+          </button>
+
+          {/* Hamburger */}
           <button onClick={toggleMenu} className="focus:outline-none">
             <svg className="w-6 h-6 text-gray-800 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMobileMenuOpen ? (
@@ -86,15 +104,16 @@ const Navbar = () => {
         </div>
         <nav className="flex flex-col px-4 py-2 space-y-2">
           {navLinks.map(link => (
-            <Link
-              key={link.name}
-              to={link.path}
-              onClick={toggleMenu}
-              className="hover:bg-gray-200 dark:hover:bg-gray-800 rounded-md px-2 py-2"
-            >
-              {link.name}
-            </Link>
-          ))}
+  <Link
+    key={link.name}
+    to={link.path}
+    onClick={toggleMenu}
+    className="hover:bg-gray-200 dark:hover:bg-gray-800 rounded-md px-2 py-2 mt-10"
+  >
+    {link.name}
+  </Link>
+))}
+
 
           <button
             onClick={() => {

@@ -24,16 +24,20 @@ const ContactUs = () => {
 
       {/* Right Section - Contact Form */}
       <form
+        action="https://formsubmit.co/shahidkhan13505@gmail.com"
+        method="POST"
         className="mt-10 md:mt-0 md:w-1/2 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md space-y-6"
-        onSubmit={(e) => {
-          e.preventDefault();
-          alert("Form submitted!");
-        }}
       >
+        {/* Optional hidden fields */}
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_subject" value="New Contact Form Submission" />
+        <input type="hidden" name="_template" value="box" />
+
         <div>
           <label className="block text-gray-700 dark:text-gray-200 mb-1">Name</label>
           <input
             type="text"
+            name="name"
             placeholder="Your Name"
             className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-white"
             required
@@ -44,6 +48,7 @@ const ContactUs = () => {
           <label className="block text-gray-700 dark:text-gray-200 mb-1">Email</label>
           <input
             type="email"
+            name="email"
             placeholder="Email"
             className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-white"
             required
@@ -54,6 +59,7 @@ const ContactUs = () => {
           <label className="block text-gray-700 dark:text-gray-200 mb-1">Phone Number</label>
           <input
             type="tel"
+            name="phone"
             placeholder="Your 10-digit Indian Number"
             pattern="[0-9]{10}"
             className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-white"
@@ -65,6 +71,7 @@ const ContactUs = () => {
           <label className="block text-gray-700 dark:text-gray-200 mb-1">Subject</label>
           <input
             type="text"
+            name="subject"
             placeholder="Subject"
             className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-white"
             required
@@ -74,6 +81,7 @@ const ContactUs = () => {
         <div>
           <label className="block text-gray-700 dark:text-gray-200 mb-1">Message</label>
           <textarea
+            name="message"
             placeholder="Type your message here."
             rows="4"
             className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-900 dark:text-white"

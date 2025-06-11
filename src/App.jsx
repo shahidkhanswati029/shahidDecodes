@@ -17,6 +17,15 @@ import BlogList from './components/BlogList';
 import BlogView from './components/BlogView';
 import SearchDialog from './components/SearchDialog';
 import searchData from '../src/components/data/searchData';
+import Terms from "./components/Terms"
+import PrivacyPolicy from "./components/PrivacyPolicy"
+import RefundPolicy from "./components/RefundPolicy"
+import WorkWithUs from "./components/WorkWithUs"
+import MyGear from "./components/MyGear"
+
+
+
+
 
 const MainLayout = ({ theme, toggleTheme, onOpenSearch }) => (
   <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300">
@@ -58,6 +67,12 @@ const App = () => {
         { path: 'contact', element: <ContactUs /> },
         { path: 'blog', element: <BlogList /> },
         { path: 'blogs/:id', element: <BlogView /> },
+        { path: 'terms', element: <Terms /> },
+        { path: 'privacy', element: <PrivacyPolicy /> },
+        { path: 'refund', element: <RefundPolicy/> },
+        { path: 'work-with-us', element: <WorkWithUs/> },
+        { path: 'my-gear', element: <MyGear/> },
+        
       ],
     },
   ]);

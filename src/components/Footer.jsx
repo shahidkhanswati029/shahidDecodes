@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Grid Section */}
-        <div className="grid  grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Main */}
           <div>
             <h3 className="font-semibold text-lg mb-4">Main</h3>
@@ -25,7 +25,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link to="/courses" className="hover:text-gray-500">Courses</Link></li>
               <li><Link to="/tutorials" className="hover:text-gray-500">Tutorials</Link></li>
-              <li><Link to="/notes" className="hover:text-gray-500">Notes</Link></li>
+              <li><Link to="/blog" className="hover:text-gray-500">Blog</Link></li>
             </ul>
           </div>
 
@@ -69,7 +69,7 @@ const Footer = () => {
 
         {/* Bottom Note */}
         <div className="mt-10 text-center text-sm text-gray-500 dark:text-gray-400">
-          Made with ❤️ and ☕ in India
+          Made by shahid khan swati with 🧡 
         </div>
       </div>
     </footer>

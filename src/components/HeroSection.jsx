@@ -42,7 +42,7 @@ const HeroSection = () => {
   }, [charIndex, isDeleting, phraseIndex]);
 
   return (
-    <div className="h-screen w-full bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex items-center justify-center px-6 py-12 transition-colors duration-300 mt-10">
+    <div className="h-screen w-full bg-white dark:bg-gray-900 text-gray-900 dark:text-white flex items-center justify-center px-6 py-12 transition-colors duration-300 mt-2">
       <div className="max-w-4xl w-full text-center">
         {/* Top Badge */}
         <div className="inline-block mb-4 px-4 py-2 bg-gray-200 dark:bg-white/10 text-sm font-medium rounded-full backdrop-blur-sm transition-colors duration-300">
